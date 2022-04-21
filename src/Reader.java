@@ -6,7 +6,7 @@ public class Reader extends Thread {
 		if(arduino.openConnection())Main.frame.setTitle("connection successful");
 		else Main.frame.setTitle("connection failed");
 		while(Main.start) {
-			String res = arduino.serialRead().replace("/n","");
+			String res = arduino.serialRead().replace("\n","");
 			if(res!="") {
 				if(res.equals("a"))Main.door1.setForeground(Color.RED);
 				else if(res.equals("b"))Main.door2.setForeground(Color.RED);
